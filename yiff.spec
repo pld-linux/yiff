@@ -1,12 +1,14 @@
 Summary:	YIFF Sound Systems
 Name:		yiff
 Version:	2.12.3
+# newer available; not tested yet
+#Version:	2.12.4
 Release:	1
 License:	Modyfied GPL
 Group:		Applications/Sound
 Group(de):	Applikationen/Laut
 Group(pl):	Aplikacje/D¼wiêk
-Source0:	ftp://fox.mit.edu/pub/xsw/%{name}%{version}.tgz
+Source0:	ftp://wolfpack.twu.net/users/wolfpack/%{name}%{version}.tgz
 Source1:	%{name}config.desktop
 Patch0:		%{name}-config_dir.patch
 URL:		http://fox.mit.edu/xsw/yiff/

@@ -4,18 +4,22 @@ Name:		yiff
 Version:	2.12.3
 # newer available; not tested yet
 #Version:	2.12.4
-Release:	2
+Release:	3
 License:	GPL-like
 Group:		Applications/Sound
 Source0:	ftp://wolfpack.twu.net/users/wolfpack/%{name}%{version}.tgz
 Source1:	%{name}config.desktop
 Patch0:		%{name}-config_dir.patch
 URL:		http://fox.mit.edu/xsw/yiff/
-BuildRequires:	gtk+-devel
-BuildRequires:	gcc-c++
 BuildRequires:	alsa-lib-devel
+BuildRequires:	gcc-c++
+BuildRequires:	gtk+-devel
 Requires:	yiff-lib = %{version}
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
+
+%define		_xprefix	/usr/X11R6
+%define		_xbindir	%{_xprefix}/bin
+%define		_xmandir	%{_xprefix}/man
 
 %description
 The YIFF sound server is a Y compliant sound server providing Y
@@ -98,9 +102,9 @@ install -d $RPM_BUILD_ROOT{%{_datadir}/sounds,%{_applnkdir},%{_sysconfdir}}
 install yiff/yiffrc $RPM_BUILD_ROOT%{_sysconfdir}
 
 %{__make} -C yiffconfig install \
-BIN_DIR="$RPM_BUILD_ROOT%{_prefix}/X11R6/bin" \
+	BIN_DIR="$RPM_BUILD_ROOT%{_xbindir}" \
 	ICONS_DIR="$RPM_BUILD_ROOT%{_pixmapsdir}" \
-MAN_DIR="$RPM_BUILD_ROOT%{_prefix}/X11R6/man/man8"
+	MAN_DIR="$RPM_BUILD_ROOT%{_xmandir}/man8"
 
 %{__make} -C yiffutils install \
 	PREFIX="$RPM_BUILD_ROOT" \
@@ -142,7 +146,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %files config
 %defattr(644,root,root,755)
-%attr(755,root,root) %{_prefix}/X11R6/bin/*
-%{_prefix}/X11R6/man*/*
+%attr(755,root,root) %{_xbindir}/*
+%{_xmandir}/man?/*
 %{_pixmapsdir}/yiffconfig*
 %{_applnkdir}/Settings/*

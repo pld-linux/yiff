@@ -1,4 +1,5 @@
 Summary:	YIFF Sound Systems
+Summary(pl):	System d¼wiêku YIFF
 Name:		yiff
 Version:	2.12.3
 # newer available; not tested yet
@@ -7,7 +8,9 @@ Release:	1
 License:	Modyfied GPL
 Group:		Applications/Sound
 Group(de):	Applikationen/Laut
+Group(es):	Aplicaciones/Sonido
 Group(pl):	Aplikacje/D¼wiêk
+Group(pt_BR):	Aplicações/Som
 Source0:	ftp://wolfpack.twu.net/users/wolfpack/%{name}%{version}.tgz
 Source1:	%{name}config.desktop
 Patch0:		%{name}-config_dir.patch
@@ -23,30 +26,54 @@ The YIFF sound server is a Y compliant sound server providing Y
 compliant client applications with sound support. Uses either OSS or
 ALSA sound drivers and follows OSS compliancy.
 
+%description -l pl
+Serwer d¼wiêku YIFF jest zgodnym z Y serwerem d¼wiêku daj±cym obs³ugê
+d¼wiêku dla aplikacji klienckich zgodnych z Y. U¿ywa sterowników OSS
+lub ALSA.
+
 %package devel
 Summary:	YIFF development package
+Summary(pl):	Pakiet programistyczny YIFF
 Group:		Development/Libraries
 Group(de):	Entwicklung/Libraries
+Group(es):	Desarrollo/Bibliotecas
 Group(fr):	Development/Librairies
 Group(pl):	Programowanie/Biblioteki
+Group(pt_BR):	Desenvolvimento/Bibliotecas
+Group(ru):	òÁÚÒÁÂÏÔËÁ/âÉÂÌÉÏÔÅËÉ
+Group(uk):	òÏÚÒÏÂËÁ/â¦ÂÌ¦ÏÔÅËÉ
 Requires:	%{name}-lib = %{version}
 
 %description devel
 YIFF Sound Systems development files required to develop programs
 using yiff.
 
+%description devel -l pl
+Pliki potrzebne do tworzenia programów u¿ywaj±cych systemu d¼wiêku
+YIFF.
+
 %package lib
 Summary:	YIFF libraries
+Summary(pl):	Biblioteki YIFF
 Group:		Development/Libraries
 Group(de):	Entwicklung/Libraries
+Group(es):	Desarrollo/Bibliotecas
 Group(fr):	Development/Librairies
 Group(pl):	Programowanie/Biblioteki
+Group(pt_BR):	Desenvolvimento/Bibliotecas
+Group(ru):	òÁÚÒÁÂÏÔËÁ/âÉÂÌÉÏÔÅËÉ
+Group(uk):	òÏÚÒÏÂËÁ/â¦ÂÌ¦ÏÔÅËÉ
 
 %description lib
 YIFF Sound Systems library required to run programs using yiff.
 
+%description lib -l pl
+Biblioteki potrzebne do uruchamiania programów korzystaj±cych z
+systemu d¼wiêku YIFF.
+
 %package config
 Summary:	YIFF configuration utility
+Summary(pl):	Narzêdzie konfiguracyjne do YIFF
 Group:		Applications/Games
 Group(de):	Applikationen/Spiele
 Group(pl):	Aplikacje/Gry
@@ -54,7 +81,10 @@ Requires:	%{name}-lib = %{version}
 Requires:	%{name} = %{version}
 
 %description config
-YIFF Sound Systems configuration utility
+YIFF Sound Systems configuration utility.
+
+%description config -l pl
+Narzêdzie konfiguracyjne do systemu d¼wiêku YIFF.
 
 %prep
 %setup -qn %{name}%{version}

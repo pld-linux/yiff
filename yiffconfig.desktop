@@ -1,6 +1,8 @@
 [Desktop Entry]
 Name=YIFF Config
+Name[pl]=Konfiguracja YIFF
 Comment=YIFF Sound Systems configurator
+Comment[pl]=Konfigurator serwera dźwięku YIFF
 Exec=yiffconfig
 Terminal=0
 Type=Application

@@ -17,7 +17,7 @@ BuildRequires:	alsa-lib-devel
 Requires:	yiff-lib = %{version}
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
-%description 
+%description
 The YIFF sound server is a Y compliant sound server providing Y
 compliant client applications with sound support. Uses either OSS or
 ALSA sound drivers and follows OSS compliancy.
@@ -94,7 +94,7 @@ install -d $RPM_BUILD_ROOT{%{_datadir}/sounds,%{_applnkdir},%{_sysconfdir}}
 %{__make} -C yiff install \
 	ETC_DIR="$RPM_BUILD_ROOT%{_sysconfdir}" \
 	SBIN_DIR="$RPM_BUILD_ROOT%{_sbindir}" \
-	MAN_DIR="$RPM_BUILD_ROOT%{_mandir}/man8" 
+	MAN_DIR="$RPM_BUILD_ROOT%{_mandir}/man8"
 install yiff/yiffrc $RPM_BUILD_ROOT%{_sysconfdir}
 
 %{__make} -C yiffconfig install \
@@ -105,12 +105,12 @@ MAN_DIR="$RPM_BUILD_ROOT%{_prefix}/X11R6/man/man8"
 %{__make} -C yiffutils install \
 	PREFIX="$RPM_BUILD_ROOT" \
 	BIN_DIR="%{_bindir}" \
-	MAN_DIR="%{_mandir}/man1" 
+	MAN_DIR="%{_mandir}/man1"
 
 %{__make} -C stuff install \
 	PREFIX="$RPM_BUILD_ROOT" \
 	ICONS_DIR="%{_pixmapsdir}" \
-	SOUNDS_DIR="%{_datadir}/sounds" 
+	SOUNDS_DIR="%{_datadir}/sounds"
 install -d $RPM_BUILD_ROOT%{_applnkdir}/Settings
 install %{SOURCE1} $RPM_BUILD_ROOT%{_applnkdir}/Settings
 

@@ -1,0 +1,80 @@
+diff -durN yiff2.12.3.orig/yiff/config.h yiff2.12.3/yiff/config.h
+--- yiff2.12.3.orig/yiff/config.h	Tue Feb 13 11:57:08 2001
++++ yiff2.12.3/yiff/config.h	Thu May  3 16:13:04 2001
+@@ -7,7 +7,7 @@
+  *	Full path to the YIFF Sound Server configuration file, it
+  *	can also be specified from the command line at run time.
+  */
+-#define DEF_RCFILE_NAME         "/usr/etc/yiffrc"
++#define DEF_RCFILE_NAME         "/etc/yiffrc"
+ /* Alternate name */
+ /*
+ #define DEF_RCFILE_NAME		"/usr/etc/YIFFConfig"
+diff -durN yiff2.12.3.orig/yiff/yiff.8 yiff2.12.3/yiff/yiff.8
+--- yiff2.12.3.orig/yiff/yiff.8	Tue Feb 13 11:57:08 2001
++++ yiff2.12.3/yiff/yiff.8	Thu May  3 16:13:30 2001
+@@ -14,7 +14,7 @@
+ .LP 
+ The location of the \fIconfig_file\fR should
+ be specified and must be the first argument.
+-The default value is /usr/etc/yiffrc.
++The default value is /etc/yiffrc.
+ .SH "OPTIONS"
+ .TP 
+ \fB\-\-device\fR <\fIdevice\fR>
+@@ -57,7 +57,7 @@
+ yhost(1) commands along with other startup commands in
+ /usr/sbin/starty (the Y server startup script).
+ .SH "FILES"
+-\fI/usr/etc/yiffrc\fP
++\fI/etc/yiffrc\fP
+ .br 
+ \fI/dev/dsp\fR
+ .br 
+@@ -71,9 +71,9 @@
+ .SH "EXAMPLES"
+ .LP 
+ To run the YIFF sound server using the configuration
+-file /usr/etc/yiffrc type:
++file /etc/yiffrc type:
+ .LP 
+-/usr/sbin/yiff /usr/etc/yiffrc
++/usr/sbin/yiff /etc/yiffrc
+ .LP 
+ More commonly a startup script would be used to run
+ the YIFF sound server instead,
+@@ -87,7 +87,7 @@
+ is not needed. If you want yiff to run in the foreground
+ then type:
+ .LP 
+-/usr/sbin/yiff /usr/etc/yiffrc \-\-foreground
++/usr/sbin/yiff /etc/yiffrc \-\-foreground
+ .SH "AUTHORS"
+ See http://wolfpack.twu.net/contacts.html
+ .SH "SEE ALSO"
+diff -durN yiff2.12.3.orig/yiffconfig/config.h yiff2.12.3/yiffconfig/config.h
+--- yiff2.12.3.orig/yiffconfig/config.h	Tue Feb 13 11:57:08 2001
++++ yiff2.12.3/yiffconfig/config.h	Thu May  3 16:14:46 2001
+@@ -5,8 +5,8 @@
+ /*
+  *	Default YIFF Sound Server configuration file:
+  */
+-#define YC_DEF_CONFIG_FILE		"/usr/etc/yiffrc"
+-#define YC_DEF_CONFIG_FILE_DIR		"/usr/etc"
++#define YC_DEF_CONFIG_FILE		"/etc/yiffrc"
++#define YC_DEF_CONFIG_FILE_DIR		"/etc"
+ 
+ /*
+  *	Default YIFF Sound Server program file:
+diff -durN yiff2.12.3.orig/yiffconfig/ycmessages.h yiff2.12.3/yiffconfig/ycmessages.h
+--- yiff2.12.3.orig/yiffconfig/ycmessages.h	Tue Feb 13 11:57:08 2001
++++ yiff2.12.3/yiffconfig/ycmessages.h	Thu May  3 16:15:01 2001
+@@ -89,7 +89,7 @@
+ #define YC_PROMPT_LABEL_CONFIGURATION_FILE	"Configuration File:"
+ #define YC_TIP_MESG_CONFIGURATION_FILE		"\
+ Full path to the YIFF Sound Server configuration \
+-file. Default value is \"/usr/etc/yiffrc\""
++file. Default value is \"/etc/yiffrc\""
+ 
+ #define YC_PROMPT_LABEL_YIFF_PROGRAM		"YIFF Program:"
+ #define YC_TIP_MESG_YIFF_PROGRAM		"\

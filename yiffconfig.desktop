@@ -5,3 +5,4 @@ Exec=yiffconfig
 Terminal=0
 Type=Application
 Icon=yiffconfig.xpm
+# vi: encoding=utf-8

@@ -97,7 +97,7 @@ bzip2 yiff/yiff.8
 %install
 rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT{%{_mandir}/man1,%{_bindir},%{_pixmapsdir}}
-install -d $RPM_BUILD_ROOT{%{_datadir}/sounds,%{_applnkdir},%{_sysconfdir}}
+install -d $RPM_BUILD_ROOT{%{_datadir}/sounds,%{_desktopdir},%{_sysconfdir}}
 
 %{__make} -C libY2 install \
 	YLIB_DIR="$RPM_BUILD_ROOT%{_libdir}" \
@@ -125,8 +125,7 @@ install yiff/yiffrc $RPM_BUILD_ROOT%{_sysconfdir}
 	ICONS_DIR="%{_pixmapsdir}" \
 	SOUNDS_DIR="%{_soundsdir}"
 
-install -d $RPM_BUILD_ROOT%{_applnkdir}/Settings
-install %{SOURCE1} $RPM_BUILD_ROOT%{_applnkdir}/Settings
+install %{SOURCE1} $RPM_BUILD_ROOT%{_desktopdir}
 
 bzip2 -d $RPM_BUILD_ROOT%{_mandir}/man?/*.bz2
 
@@ -160,4 +159,4 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_bindir}/yiffconfig
 %{_mandir}/man1/yiffconfig.1*
 %{_pixmapsdir}/yiffconfig*
-%{_applnkdir}/Settings/*
+%{_desktopdir}/*

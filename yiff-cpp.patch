@@ -22,12 +22,54 @@
  
 --- yiff2.12.4/yiffutils/Makefile.orig	Sat May  5 10:53:22 2001
 +++ yiff2.12.4/yiffutils/Makefile	Sun Feb  2 11:12:31 2003
-@@ -93,7 +93,7 @@
- # ########################################################################
- # Program Source and Header Files:
- #
--CC     = gcc
-+CC     = g++
- STDSRC = disk.cpp fio.cpp strexp.cpp string.cpp
+@@ -110,42 +110,42 @@
+ 	helloworld.c -o helloworld
  
- PROGS  = helloworld yhost ymixer yplay yrecinfo yset yshutdown
+ yaudiocd:
+-	$(CC) $(CFLAGS) $(INC) $(LIB_DIR) $(LIB) \
++	$(CPP) $(CFLAGS) $(INC) $(LIB_DIR) $(LIB) \
+ 	string.cpp \
+ 	yaudiocd.c -o yaudiocd
+ 
+ yclientmessage:
+-	$(CC) $(CFLAGS) $(INC) $(LIB_DIR) $(LIB) \
++	$(CPP) $(CFLAGS) $(INC) $(LIB_DIR) $(LIB) \
+ 	string.cpp \
+         yclientmessage.c -o yclientmessage
+ 
+ yhost:
+-	$(CC) $(CFLAGS) $(INC) $(LIB_DIR) $(LIB) \
++	$(CPP) $(CFLAGS) $(INC) $(LIB_DIR) $(LIB) \
+ 	string.cpp \
+ 	yhost.c -o yhost
+ 
+ ymixer:
+-	$(CC) $(CFLAGS) $(INC) $(LIB_DIR) $(LIB) \
++	$(CPP) $(CFLAGS) $(INC) $(LIB_DIR) $(LIB) \
+ 	string.cpp \
+ 	ymixer.c -o ymixer
+ 
+ yplay:
+-	$(CC) $(CFLAGS) $(INC) $(LIB_DIR) $(LIB) \
++	$(CPP) $(CFLAGS) $(INC) $(LIB_DIR) $(LIB) \
+ 	disk.cpp string.cpp \
+ 	yplay.c -o yplay
+ 
+ yrecinfo:
+-	$(CC) $(CFLAGS) $(INC) $(LIB_DIR) $(LIB) $(STDSRC) \
++	$(CPP) $(CFLAGS) $(INC) $(LIB_DIR) $(LIB) $(STDSRC) \
+ 	string.cpp \
+ 	yrecinfo.c -o yrecinfo
+ 
+ yset:
+-	$(CC) $(CFLAGS) $(INC) $(LIB_DIR) $(LIB) $(STDSRC) \
++	$(CPP) $(CFLAGS) $(INC) $(LIB_DIR) $(LIB) $(STDSRC) \
+ 	string.cpp \
+ 	yset.c -o yset
+ 
+ yshutdown:
+-	$(CC) $(CFLAGS) $(INC) $(LIB_DIR) $(LIB) $(STDSRC) \
++	$(CPP) $(CFLAGS) $(INC) $(LIB_DIR) $(LIB) $(STDSRC) \
+ 	string.cpp \
+ 	yshutdown.c -o yshutdown
+ 

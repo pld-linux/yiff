@@ -1,17 +1,18 @@
 Summary:	YIFF Sound Systems
 Summary(pl):	System d¼wiêku YIFF
 Name:		yiff
-Version:	2.12.4
+Version:	2.14.1
 Release:	1
 License:	GPL-like
 Group:		Applications/Sound
-Source0:	ftp://wolfpack.twu.net/users/wolfpack/%{name}%{version}.tar.bz2
-# Source0-md5:	e114e57336c706df98f0c57873b2a4f0
+Source0:	ftp://wolfpack.twu.net/users/wolfpack/%{name}-%{version}.tar.bz2
+# Source0-md5:	088d8062faec8ad29a4410f6176bfdaa
 Source1:	%{name}config.desktop
 Patch0:		%{name}-config_dir.patch
 Patch1:		%{name}-glibc.patch
 Patch2:		%{name}-cpp.patch
 Patch3:		%{name}-nolibz.patch
+Patch4:		%{name}-gcc33.patch
 URL:		http://wolfpack.twu.net/YIFF/
 BuildRequires:	gtk+-devel
 BuildRequires:	libstdc++-devel
@@ -69,20 +70,27 @@ YIFF Sound Systems configuration utility.
 Narzêdzie konfiguracyjne do systemu d¼wiêku YIFF.
 
 %prep
-%setup -qn %{name}%{version}
+%setup -q
+bzip2 -d yiff/yiff.8.bz2
 %patch0 -p1
+bzip2 yiff/yiff.8
 %patch1 -p1
 %patch2 -p1
 %patch3 -p1
+%patch4 -p1
 
 %build
-%{__make} -C libY2 CFLAGS="-shared %{rpmcflags} -fPIC -Wl,-soname=libY2.so.12"
+%{__make} -C libY2 \
+	CFLAGS="-shared %{rpmcflags} -fPIC -Wl,-soname=libY2.so.14"
 
-%{__make} -C yiff CFLAGS="%{rpmcflags}"
+%{__make} -C yiff \
+	CFLAGS="%{rpmcflags}"
 
-%{__make} -C yiffconfig CFLAGS="`gtk-config --cflags` %{rpmcflags}"
+%{__make} -C yiffconfig \
+	CFLAGS="`gtk-config --cflags` %{rpmcflags}"
 
-%{__make} -C yiffutils CFLAGS="%{rpmcflags}"
+%{__make} -C yiffutils \
+	CFLAGS="%{rpmcflags}"
 
 %install
 rm -rf $RPM_BUILD_ROOT
@@ -117,6 +125,8 @@ install yiff/yiffrc $RPM_BUILD_ROOT%{_sysconfdir}
 
 install -d $RPM_BUILD_ROOT%{_applnkdir}/Settings
 install %{SOURCE1} $RPM_BUILD_ROOT%{_applnkdir}/Settings
+
+bzip2 -d $RPM_BUILD_ROOT%{_mandir}/man?/*.bz2
 
 %clean
 rm -rf $RPM_BUILD_ROOT

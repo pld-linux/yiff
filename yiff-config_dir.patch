@@ -35,22 +35,22 @@ diff -durN yiff2.12.4.orig/yiff/yiff.8 yiff2.12.4/yiff/yiff.8
  .SH "EXAMPLES"
  .LP 
  To run the YIFF sound server using the configuration
--file /usr/etc/yiffrc type:
-+file /etc/yiffrc type:
+-file /usr/etc/yiffrc, type:
++file /etc/yiffrc, type:
  .LP 
--/usr/sbin/yiff /usr/etc/yiffrc
-+/usr/sbin/yiff /etc/yiffrc
+-# /usr/sbin/yiff /usr/etc/yiffrc
++# /usr/sbin/yiff /etc/yiffrc
  .LP 
- More commonly a startup script would be used to run
- the YIFF sound server instead,
+ It is more common to start the YIFF sound server
+ by invoking the startup script (make sure it is written
 @@ -87,7 +87,7 @@
- is not needed. If you want yiff to run in the foreground
+ is not needed. If you want yiff to run in the foreground,
  then type:
  .LP 
--/usr/sbin/yiff /usr/etc/yiffrc \-\-foreground
-+/usr/sbin/yiff /etc/yiffrc \-\-foreground
+-# /usr/sbin/yiff /usr/etc/yiffrc \-\-foreground
++# /usr/sbin/yiff /etc/yiffrc \-\-foreground
  .SH "AUTHORS"
- See http://wolfpack.twu.net/contacts.html
+ http://wolfpack.twu.net/contacts.html
  .SH "SEE ALSO"
 diff -durN yiff2.12.3.orig/yiffconfig/config.h yiff2.12.3/yiffconfig/config.h
 --- yiff2.12.3.orig/yiffconfig/config.h	Tue Feb 13 11:57:08 2001

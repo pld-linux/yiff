@@ -5,7 +5,7 @@
  #endif
  extern const char *strseekblank(const char *s);
 +#ifndef __USE_GNU
- extern const char *strcasestr(const char *haystack, const char *needle);
+ extern char *strcasestr(const char *haystack, const char *needle);
 +#endif
  extern int strpfx(const char *str, const char *pfx);
  extern int strcasepfx(const char *str, const char *pfx);
@@ -17,7 +17,7 @@
  
  const char *strseekblank(const char *s);
 +#ifndef __USE_GNU
- const char *strcasestr(const char *haystack, const char *needle);
+ char *strcasestr(const char *haystack, const char *needle);
 +#endif
  int strpfx(const char *str, const char *pfx);
  int strcasepfx(const char *str, const char *pfx);
@@ -46,7 +46,7 @@
  
 +#ifndef __USE_ISOC99
 +
- #ifndef __FreeBSD__
+ #if !defined(__FreeBSD__) && !defined(__NetBSD__)
  # if defined(__cplusplus) || defined(c_plusplus)
  
 @@ -14,5 +16,6 @@
@@ -63,7 +63,7 @@
  
  const char *strseekblank(const char *s);
 +#ifndef __USE_GNU
- const char *strcasestr(const char *haystack, const char *needle);
+ char *strcasestr(const char *haystack, const char *needle);
 +#endif
  int strpfx(const char *str, const char *pfx);
  int strcasepfx(const char *str, const char *pfx);
@@ -91,7 +91,7 @@
  
  const char *strseekblank(const char *s);
 +#ifndef __USE_GNU
- const char *strcasestr(const char *haystack, const char *needle);
+ char *strcasestr(const char *haystack, const char *needle);
 +#endif
  int strpfx(const char *str, const char *pfx);
  int strcasepfx(const char *str, const char *pfx);

@@ -4,8 +4,8 @@ Name:		yiff
 Version:	2.12.3
 # newer available; not tested yet
 #Version:	2.12.4
-Release:	1
-License:	Modyfied GPL
+Release:	2
+License:	GPL-like
 Group:		Applications/Sound
 Source0:	ftp://wolfpack.twu.net/users/wolfpack/%{name}%{version}.tgz
 Source1:	%{name}config.desktop
@@ -114,14 +114,12 @@ MAN_DIR="$RPM_BUILD_ROOT%{_prefix}/X11R6/man/man8"
 install -d $RPM_BUILD_ROOT%{_applnkdir}/Settings
 install %{SOURCE1} $RPM_BUILD_ROOT%{_applnkdir}/Settings
 
-gzip -9nf README AUTHORS LICENSE
-
 %clean
 rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc *.gz
+%doc README AUTHORS LICENSE
 %attr(755,root,root) %{_bindir}/*
 %attr(755,root,root) %{_sbindir}/*
 %attr(644,root,root) %config %verify(not size mtime md5) %{_sysconfdir}/yiffrc
@@ -133,7 +131,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %files lib
 %defattr(644,root,root,755)
-%doc LICENSE.gz
+%doc LICENSE
 %attr(755,root,root) %{_libdir}/libY2.so.*
 %attr(755,root,root) %{_libdir}/libY2.so
 

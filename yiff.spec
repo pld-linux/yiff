@@ -72,6 +72,13 @@ ldconfig
 rm -rf $RPM_BUILD_ROOT
 
 %changelog
+* %{date} PLD Team <pld-list@pld.org.pl>
+All persons listed below can be reached at <cvs_login>@pld.org.pl
+
+$Log: yiff.spec,v $
+Revision 1.2  2000-09-24 18:10:58  pascalek
+- added $, $ and :$ section
+
 * Sun Jun 25 2000 Charles Duffy <cduffy@bigfoot.com>
 
 - Fixed bug causing headers to not be included in -devel package

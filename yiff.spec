@@ -11,7 +11,7 @@ Patch0:		%{name}-config_dir.patch
 Patch1:		%{name}-glibc.patch
 Patch2:		%{name}-cpp.patch
 Patch3:		%{name}-nolibz.patch
-URL:		http://fox.mit.edu/xsw/yiff/
+URL:		http://wolfpack.twu.net/YIFF/
 BuildRequires:	gtk+-devel
 BuildRequires:	libstdc++-devel
 Requires:	yiff-lib = %{version}

@@ -80,8 +80,10 @@ bzip2 yiff/yiff.8
 %patch4 -p1
 
 %build
+# (unset) LIBS is abused to pass SONAME
 %{__make} -C libY2 \
-	CFLAGS="-shared %{rpmcflags} -fPIC -Wl,-soname=libY2.so.14"
+	CFLAGS="-shared %{rpmcflags} -fPIC" \
+	LIBS="-Wl,-soname=libY2.so.14"
 
 %{__make} -C yiff \
 	CFLAGS="%{rpmcflags}"

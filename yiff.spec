@@ -7,10 +7,6 @@ Version:	2.12.3
 Release:	1
 License:	Modyfied GPL
 Group:		Applications/Sound
-Group(de):	Applikationen/Laut
-Group(es):	Aplicaciones/Sonido
-Group(pl):	Aplikacje/D╪wiЙk
-Group(pt_BR):	AplicaГУes/Som
 Source0:	ftp://wolfpack.twu.net/users/wolfpack/%{name}%{version}.tgz
 Source1:	%{name}config.desktop
 Patch0:		%{name}-config_dir.patch
@@ -35,13 +31,6 @@ lub ALSA.
 Summary:	YIFF development package
 Summary(pl):	Pakiet programistyczny YIFF
 Group:		Development/Libraries
-Group(de):	Entwicklung/Libraries
-Group(es):	Desarrollo/Bibliotecas
-Group(fr):	Development/Librairies
-Group(pl):	Programowanie/Biblioteki
-Group(pt_BR):	Desenvolvimento/Bibliotecas
-Group(ru):	Разработка/Библиотеки
-Group(uk):	Розробка/Б╕бл╕отеки
 Requires:	%{name}-lib = %{version}
 
 %description devel
@@ -56,13 +45,6 @@ YIFF.
 Summary:	YIFF libraries
 Summary(pl):	Biblioteki YIFF
 Group:		Development/Libraries
-Group(de):	Entwicklung/Libraries
-Group(es):	Desarrollo/Bibliotecas
-Group(fr):	Development/Librairies
-Group(pl):	Programowanie/Biblioteki
-Group(pt_BR):	Desenvolvimento/Bibliotecas
-Group(ru):	Разработка/Библиотеки
-Group(uk):	Розробка/Б╕бл╕отеки
 
 %description lib
 YIFF Sound Systems library required to run programs using yiff.
@@ -75,8 +57,6 @@ systemu d╪wiЙku YIFF.
 Summary:	YIFF configuration utility
 Summary(pl):	NarzЙdzie konfiguracyjne do YIFF
 Group:		Applications/Games
-Group(de):	Applikationen/Spiele
-Group(pl):	Aplikacje/Gry
 Requires:	%{name}-lib = %{version}
 Requires:	%{name} = %{version}
 

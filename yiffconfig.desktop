@@ -1,0 +1,7 @@
+[Desktop Entry]
+Name=YIFF Config
+Comment=YIFF Sound Systems configurator
+Exec=yiffconfig
+Terminal=0
+Type=Application
+Icon=yiffconfig.xpm

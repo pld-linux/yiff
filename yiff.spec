@@ -6,6 +6,7 @@ Release:	1
 License:	GPL-like
 Group:		Applications/Sound
 Source0:	ftp://wolfpack.twu.net/users/wolfpack/%{name}%{version}.tar.bz2
+# Source0-md5:	e114e57336c706df98f0c57873b2a4f0
 Source1:	%{name}config.desktop
 Patch0:		%{name}-config_dir.patch
 Patch1:		%{name}-glibc.patch

@@ -60,7 +60,7 @@ systemu d¼wiêku YIFF.
 %package config
 Summary:	YIFF configuration utility
 Summary(pl):	Narzêdzie konfiguracyjne do YIFF
-Group:		Applications/Games
+Group:		Applications/Sound
 Requires:	%{name} = %{version}
 
 %description config

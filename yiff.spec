@@ -1,81 +1,136 @@
-Summary:	yiff Y Sound System
-Version:	2.8.0
+Summary:	YIFF Sound Systems
 Name:		yiff
-Release:	2
-License:	Modified GPL
-Group:		Applications/Sound
-Group(de):	Applikationen/Laut
-Group(pl):	Aplikacje/D¼wiêk
-Source0:	%{name}-%{version}.tar.bz2
-URL:		http://fox.mit.edu/xsw/yiff/
-BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
-Obsoletes:	yiff-server
-
-%define		_prefix		/usr/X11R6
-%define		_mandir		%{_prefix}/man
-
-%description
-Yiff is yet another sound server for UNIX.
-
-%package devel
-Summary:	Yiff headers and development libraries
+Version:	2.12.3
+Release:	1
+License:	extended GPL
 Group:		Development/Libraries
 Group(de):	Entwicklung/Libraries
 Group(fr):	Development/Librairies
 Group(pl):	Programowanie/Biblioteki
-Requires:	%{name}-libs = %{version}
+Source0:	ftp://fox.mit.edu/pub/xsw/%{name}%{version}.tgz
+BuildRequires:	gtk+-devel
+BuildRequires:	gcc-c++
+BuildRequires:	alsa-lib-devel
+Requires:	yiff-lib = %{version}
+BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
+
+%description 
+The YIFF sound server is a Y compliant sound server providing Y
+compliant client applications with sound support. Uses either OSS or
+ALSA sound drivers and follows OSS compliancy.
+
+%package devel
+Summary:	YIFF development package
+Group:		Development/Libraries
+Group(de):	Entwicklung/Libraries
+Group(fr):	Development/Librairies
+Group(pl):	Programowanie/Biblioteki
+Requires:	%{name}-lib = %{version}
 
 %description devel
-Y Sound development libraries required to develop programs using yiff.
+YIFF development package
 
-%package libs
-Summary:	Yiff libraries
-Group:		X11/Libraries
-Group(de):	X11/Libraries
-Group(pl):	X11/Biblioteki
+%package lib
+Summary:	YIFF libraries
+Group:		Development/Libraries
+Group(de):	Entwicklung/Libraries
+Group(fr):	Development/Librairies
+Group(pl):	Programowanie/Biblioteki
 
-%description libs
-Y Sound libraries required to run programs using yiff.
+%description lib
+YIFF libraries
+
+%package config
+Summary:	YIFF configuration utility
+Group:		Applications/Games
+Group(de):	Applikationen/Spiele
+Group(pl):	Aplikacje/Gry
+Requires:	%{name}-lib = %{version}
+Requires:	%{name} = %{version}
+
+%description config
+YIFF configuration utility
 
 %prep
-%setup -q
+%setup -qn %{name}%{version}
 
 %build
-%configure
-make
+cd libY2
+%{__make} CFLAGS="-shared %{rpmcflags}"
+cd ..
+
+cd yiff
+%{__make} CFLAGS="%{rpmcflags}"
+cd ..
+
+cd yiffconfig
+%{__make} CFLAGS="`gtk-config --cflags` %{rpmcflags}"
+cd ..
+
+cd yiffutils
+%{__make} CFLAGS="%{rpmcflags}"
+cd ..
 
 %install
 rm -rf $RPM_BUILD_ROOT
-%{__make} install prefix=$RPM_BUILD_ROOT/%{_prefix}
-#install yiffstart $RPM_BUILD_ROOT/etc/rc.d/init.d/yiffstart
 
-%post   libs -p /snin/ldconfig
-%postun libs -p /sbin/ldconfig
+cd libY2
+%{__make} install \
+	YLIB_DIR="$RPM_BUILD_ROOT%{_libdir}" \
+	YINC_DIR="$RPM_BUILD_ROOT%{_includedir}/Y2" \
+	YMAN_DIR="$RPM_BUILD_ROOT%{_mandir}/man3" \
+	LDCONFIG="/bin/true"
+cd ..
 
-%post
-#/etc/rc.d/init.d/yiffstart restart
+cd yiff
+%{__make} install \
+	ETC_DIR="$RPM_BUILD_ROOT%{_sysconfdir}" \
+	SBIN_DIR="$RPM_BUILD_ROOT%{_sbindir}" \
+	MAN_DIR="$RPM_BUILD_ROOT%{_mandir}/man8" 
+cd ..
 
-%files
-%defattr(644,root,root,755)
-%doc AUTHORS README INSTALL LICENSE
-#%{_prefix}/sbin/*
-#%{_prefix}%{_sysconfdir}/*
-%attr(755,root,root) %{_bindir}/*
-#%{_prefix}/X11R6/bin/yiffconfig
-#/etc/rc.d/init.d/yiffstart
+cd yiffconfig
+%{__make} install \
+BIN_DIR="$RPM_BUILD_ROOT%{_prefix}/X11R6/bin" \
+	ICONS_DIR="$RPM_BUILD_ROOT%{_pixmapsdir}" \
+MAN_DIR="$RPM_BUILD_ROOT%{_prefix}/X11R6/man/man8"
+cd ..
 
-%files libs
-%defattr(644,root,root,755)
-%attr(755,root,root) %{_libdir}/libs*.so.*.*
+install -d $RPM_BUILD_ROOT{%{_mandir}/man1,%{_bindir}}
+cd yiffutils
+%{__make} install \
+	PREFIX="$RPM_BUILD_ROOT" \
+	BIN_DIR="%{_bindir}" \
+	MAN_DIR="%{_mandir}/man1" 
+cd ..
 
-%files devel
-%defattr(644,root,root,755)
-%attr(755,root,root) %{_libdir}/libs*.so
-%{_includedir}/Y2
 
-%files static
-%defattr(644,root,root,755)
-%{_libdir}/*.a
+gzip -9nf README AUTHORS LICENSE
 
 %clean
 rm -rf $RPM_BUILD_ROOT
+
+%files
+%defattr(644,root,root,755)
+%doc *.gz
+%attr(755,root,root) %{_bindir}/*
+%attr(755,root,root) %{_sbindir}/*
+%{_mandir}/man1/*
+%{_mandir}/man8/*
+
+%files lib
+%defattr(644,root,root,755)
+%doc LICENSE.gz
+%attr(755,root,root) %{_libdir}/libY2.so.*
+
+%files devel
+%defattr(644,root,root,755)
+%{_includedir}/Y2
+%{_mandir}/man3/*
+%attr(755,root,root) %{_libdir}/libY2.so
+
+%files config
+%defattr(644,root,root,755)
+%attr(755,root,root) %{_prefix}/X11R6/bin/*
+%{_prefix}/X11R6/man*/*
+%{_pixmapsdir}/*

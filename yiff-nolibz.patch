@@ -1,0 +1,11 @@
+--- yiff2.12.4/yiffconfig/Makefile.orig	Sun Feb  2 11:32:48 2003
++++ yiff2.12.4/yiffconfig/Makefile	Sun Feb  2 11:32:15 2003
+@@ -72,7 +72,7 @@
+ #
+ LIB = -lm \
+       `gtk-config --libs` \
+-      -lz -lY2
++      -lY2
+ 
+ # Library Directories:
+ #

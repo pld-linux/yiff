@@ -1,0 +1,33 @@
+--- yiff2.12.4/yiff/Makefile.orig	Sat May  5 10:53:24 2001
++++ yiff2.12.4/yiff/Makefile	Sun Feb  2 11:03:57 2003
+@@ -148,7 +148,7 @@
+ # Build Rules:
+ #
+ $(BIN): $(OBJ_C) $(OBJ_CPP)
+-	$(CC) $(OBJ_C) $(OBJ_CPP) -o $(BIN) $(LIB) $(LIB_DIR)
++	$(CPP) $(OBJ_C) $(OBJ_CPP) -o $(BIN) $(LIB) $(LIB_DIR)
+ 
+ all: $(BIN)
+ 
+--- yiff2.12.4/yiffconfig/Makefile.orig	Sat May  5 10:53:23 2001
++++ yiff2.12.4/yiffconfig/Makefile	Sun Feb  2 11:08:37 2003
+@@ -117,7 +117,7 @@
+ # Build Rules:
+ #
+ $(BIN): $(OBJ_C) $(OBJ_CPP)
+-	$(CC) $(OBJ_C) $(OBJ_CPP) -o $(BIN) $(LIB) $(LIB_DIR)
++	$(CPP) $(OBJ_C) $(OBJ_CPP) -o $(BIN) $(LIB) $(LIB_DIR)
+ 
+ all: $(BIN)
+ 
+--- yiff2.12.4/yiffutils/Makefile.orig	Sat May  5 10:53:22 2001
++++ yiff2.12.4/yiffutils/Makefile	Sun Feb  2 11:12:31 2003
+@@ -93,7 +93,7 @@
+ # ########################################################################
+ # Program Source and Header Files:
+ #
+-CC     = gcc
++CC     = g++
+ STDSRC = disk.cpp fio.cpp strexp.cpp string.cpp
+ 
+ PROGS  = helloworld yhost ymixer yplay yrecinfo yset yshutdown

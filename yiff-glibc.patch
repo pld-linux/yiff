@@ -1,0 +1,114 @@
+--- yiff2.12.4/include/string.h.orig	Sat May  5 10:53:24 2001
++++ yiff2.12.4/include/string.h	Sun Feb  2 10:55:44 2003
+@@ -24,7 +24,9 @@
+ extern int strcasecmp(const char *s1, const char *s2);
+ #endif
+ extern const char *strseekblank(const char *s);
++#ifndef __USE_GNU
+ extern const char *strcasestr(const char *haystack, const char *needle);
++#endif
+ extern int strpfx(const char *str, const char *pfx);
+ extern int strcasepfx(const char *str, const char *pfx);
+ extern void strtoupper(char *s);
+--- yiff2.12.4/yiff/string.cpp.orig	Sat May  5 10:53:24 2001
++++ yiff2.12.4/yiff/string.cpp	Sun Feb  2 10:56:27 2003
+@@ -31,7 +31,9 @@
+ #endif	/* __MSW__ */
+ 
+ const char *strseekblank(const char *s);
++#ifndef __USE_GNU
+ const char *strcasestr(const char *haystack, const char *needle);
++#endif
+ int strpfx(const char *str, const char *pfx);
+ int strcasepfx(const char *str, const char *pfx);
+ void strtoupper(char *s);
+@@ -211,6 +213,7 @@
+ 	    return(s);
+ }
+ 
++#ifndef __USE_GNU
+ /*
+  *	Case insensitive version of strstr(). Returns the pointer to
+  *	needle in haystack if found or NULL on no match.
+@@ -272,6 +275,7 @@
+ 
+         return(NULL);
+ }
++#endif
+ 
+ /*
+  *	Returns 1 if pfx is a prefix of str.
+--- yiff2.12.4/include/xsw_ctype.h.orig	Sat May  5 10:53:24 2001
++++ yiff2.12.4/include/xsw_ctype.h	Sun Feb  2 11:01:27 2003
+@@ -1,6 +1,8 @@
+ // xsw_ctype.h
+ // This is intended as a prototype for files using the global/ctype.cpp file.
+ 
++#ifndef __USE_ISOC99
++
+ #ifndef __FreeBSD__
+ # if defined(__cplusplus) || defined(c_plusplus)
+ 
+@@ -14,5 +16,6 @@
+ # endif	/* __cplusplus || c_plusplus */
+ #endif	/* __FreeBSD__ */
+ 
++#endif
+ 
+ extern void ctype_dummy_func();
+--- yiff2.12.4/yiffconfig/string.cpp.orig	Sat May  5 10:53:23 2001
++++ yiff2.12.4/yiffconfig/string.cpp	Sun Feb  2 11:07:50 2003
+@@ -31,7 +31,9 @@
+ #endif	/* __MSW__ */
+ 
+ const char *strseekblank(const char *s);
++#ifndef __USE_GNU
+ const char *strcasestr(const char *haystack, const char *needle);
++#endif
+ int strpfx(const char *str, const char *pfx);
+ int strcasepfx(const char *str, const char *pfx);
+ void strtoupper(char *s);
+@@ -211,6 +213,7 @@
+ 	    return(s);
+ }
+ 
++#ifndef __USE_GNU
+ /*
+  *	Case insensitive version of strstr(). Returns the pointer to
+  *	needle in haystack if found or NULL on no match.
+@@ -272,6 +275,7 @@
+ 
+         return(NULL);
+ }
++#endif
+ 
+ /*
+  *	Returns 1 if pfx is a prefix of str.
+--- yiff2.12.4/yiffutils/string.cpp.orig	Sat May  5 10:53:23 2001
++++ yiff2.12.4/yiffutils/string.cpp	Sun Feb  2 11:11:12 2003
+@@ -31,7 +31,9 @@
+ #endif	/* __MSW__ */
+ 
+ const char *strseekblank(const char *s);
++#ifndef __USE_GNU
+ const char *strcasestr(const char *haystack, const char *needle);
++#endif
+ int strpfx(const char *str, const char *pfx);
+ int strcasepfx(const char *str, const char *pfx);
+ void strtoupper(char *s);
+@@ -211,6 +213,7 @@
+ 	    return(s);
+ }
+ 
++#ifndef __USE_GNU
+ /*
+  *	Case insensitive version of strstr(). Returns the pointer to
+  *	needle in haystack if found or NULL on no match.
+@@ -272,6 +275,7 @@
+ 
+         return(NULL);
+ }
++#endif
+ 
+ /*
+  *	Returns 1 if pfx is a prefix of str.

@@ -10,22 +10,22 @@ diff -durN yiff2.12.3.orig/yiff/config.h yiff2.12.3/yiff/config.h
  /* Alternate name */
  /*
  #define DEF_RCFILE_NAME		"/usr/etc/YIFFConfig"
-diff -durN yiff2.12.3.orig/yiff/yiff.8 yiff2.12.3/yiff/yiff.8
---- yiff2.12.3.orig/yiff/yiff.8	Tue Feb 13 11:57:08 2001
-+++ yiff2.12.3/yiff/yiff.8	Thu May  3 16:13:30 2001
+diff -durN yiff2.12.4.orig/yiff/yiff.8 yiff2.12.4/yiff/yiff.8
+--- yiff2.12.4.orig/yiff/yiff.8	Tue Feb 13 11:57:08 2001
++++ yiff2.12.4/yiff/yiff.8	Thu May  3 16:13:30 2001
 @@ -14,7 +14,7 @@
  .LP 
  The location of the \fIconfig_file\fR should
- be specified and must be the first argument.
+ be specified as the first argument.
 -The default value is /usr/etc/yiffrc.
 +The default value is /etc/yiffrc.
  .SH "OPTIONS"
  .TP 
  \fB\-\-device\fR <\fIdevice\fR>
-@@ -57,7 +57,7 @@
- yhost(1) commands along with other startup commands in
+@@ -58,7 +58,7 @@
  /usr/sbin/starty (the Y server startup script).
  .SH "FILES"
+ .LP 
 -\fI/usr/etc/yiffrc\fP
 +\fI/etc/yiffrc\fP
  .br 

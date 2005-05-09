@@ -2,7 +2,7 @@ Summary:	YIFF Sound Systems
 Summary(pl):	System d¼wiêku YIFF
 Name:		yiff
 Version:	2.14.2
-Release:	3
+Release:	4
 License:	GPL-like
 Group:		Applications/Sound
 Source0:	ftp://wolfpack.twu.net/users/wolfpack/%{name}-%{version}.tar.bz2
@@ -13,6 +13,7 @@ Patch1:		%{name}-glibc.patch
 Patch2:		%{name}-cpp.patch
 Patch3:		%{name}-nolibz.patch
 Patch4:		%{name}-gcc33.patch
+Patch5:		%{name}-gcc4.patch
 URL:		http://wolfpack.twu.net/YIFF/
 BuildRequires:	gtk+-devel
 BuildRequires:	libstdc++-devel
@@ -78,6 +79,7 @@ bzip2 yiff/yiff.8
 %patch2 -p1
 %patch3 -p1
 %patch4 -p1
+%patch5 -p1
 
 %build
 # (unset) LIBS is abused to pass SONAME

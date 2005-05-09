@@ -1,0 +1,44 @@
+--- yiff-2.14.2.orig/libY2/disk.cpp	2003-07-20 23:30:00.000000000 +0200
++++ yiff-2.14.2/libY2/disk.cpp	2005-05-09 17:52:03.062921120 +0200
+@@ -130,7 +130,7 @@
+ 
+ 	// Dan S: typecast is due to const.
+ #if defined(__cplusplus) || defined(c_plusplus)
+-	while(ISBLANK(reinterpret_cast<char>(*path)))
++	while(ISBLANK(*path))
+ #else
+ 	while(ISBLANK(*path))
+ #endif
+--- yiff-2.14.2.orig/yiff/disk.cpp	2003-07-20 23:30:02.000000000 +0200
++++ yiff-2.14.2/yiff/disk.cpp	2005-05-09 17:52:03.064920816 +0200
+@@ -130,7 +130,7 @@
+ 
+ 	// Dan S: typecast is due to const.
+ #if defined(__cplusplus) || defined(c_plusplus)
+-	while(ISBLANK(reinterpret_cast<char>(*path)))
++	while(ISBLANK(*path))
+ #else
+ 	while(ISBLANK(*path))
+ #endif
+--- yiff-2.14.2.orig/yiffconfig/disk.cpp	2003-07-20 23:30:00.000000000 +0200
++++ yiff-2.14.2/yiffconfig/disk.cpp	2005-05-09 17:53:29.218823432 +0200
+@@ -130,7 +130,7 @@
+ 
+ 	// Dan S: typecast is due to const.
+ #if defined(__cplusplus) || defined(c_plusplus)
+-	while(ISBLANK(reinterpret_cast<char>(*path)))
++	while(ISBLANK(*path))
+ #else
+ 	while(ISBLANK(*path))
+ #endif
+--- yiff-2.14.2.orig/yiffutils/disk.cpp	2003-07-20 23:30:00.000000000 +0200
++++ yiff-2.14.2/yiffutils/disk.cpp	2005-05-09 17:54:11.915332576 +0200
+@@ -130,7 +130,7 @@
+ 
+ 	// Dan S: typecast is due to const.
+ #if defined(__cplusplus) || defined(c_plusplus)
+-	while(ISBLANK(reinterpret_cast<char>(*path)))
++	while(ISBLANK(*path))
+ #else
+ 	while(ISBLANK(*path))
+ #endif

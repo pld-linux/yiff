@@ -36,7 +36,7 @@ lub ALSA.
 Summary:	YIFF development package
 Summary(pl):	Pakiet programistyczny YIFF
 Group:		Development/Libraries
-Requires:	%{name}-lib = %{version}
+Requires:	%{name}-lib = %{version}-%{release}
 
 %description devel
 YIFF Sound Systems development files required to develop programs
@@ -62,7 +62,7 @@ systemu d¼wiêku YIFF.
 Summary:	YIFF configuration utility
 Summary(pl):	Narzêdzie konfiguracyjne do YIFF
 Group:		Applications/Sound
-Requires:	%{name} = %{version}
+Requires:	%{name} = %{version}-%{release}
 
 %description config
 YIFF Sound Systems configuration utility.
@@ -138,7 +138,7 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_bindir}/y[!i]*
 %attr(755,root,root) %{_sbindir}/*
-%attr(644,root,root) %config(noreplace) %verify(not size mtime md5) %{_sysconfdir}/yiffrc
+%attr(644,root,root) %config(noreplace) %verify(not md5 mtime size) %{_sysconfdir}/yiffrc
 %{_mandir}/man1/y[!i]*
 %{_mandir}/man8/*
 %{_pixmapsdir}/yiff.xpm

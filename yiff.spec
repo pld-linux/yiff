@@ -1,19 +1,16 @@
 Summary:	YIFF Sound Systems
 Summary(pl):	System d¼wiêku YIFF
 Name:		yiff
-Version:	2.14.2
-Release:	4
+Version:	2.14.5
+Release:	1
 License:	GPL-like
 Group:		Applications/Sound
 Source0:	ftp://wolfpack.twu.net/users/wolfpack/%{name}-%{version}.tar.bz2
-# Source0-md5:	00c446190892989a167769fb9ea2c037
+# Source0-md5:	c43724d006a419f99fdb797e3067c085
 Source1:	%{name}config.desktop
 Patch0:		%{name}-config_dir.patch
-Patch1:		%{name}-glibc.patch
-Patch2:		%{name}-cpp.patch
-Patch3:		%{name}-nolibz.patch
-Patch4:		%{name}-gcc33.patch
-Patch5:		%{name}-gcc4.patch
+Patch1:		%{name}-cpp.patch
+Patch2:		%{name}-nolibz.patch
 URL:		http://wolfpack.twu.net/YIFF/
 BuildRequires:	gtk+-devel
 BuildRequires:	libstdc++-devel
@@ -77,23 +74,26 @@ bzip2 -d yiff/yiff.8.bz2
 bzip2 yiff/yiff.8
 %patch1 -p1
 %patch2 -p1
-%patch3 -p1
-%patch4 -p1
-%patch5 -p1
 
 %build
-# (unset) LIBS is abused to pass SONAME
 %{__make} -C libY2 \
-	CFLAGS="-shared %{rpmcflags} -fPIC" \
-	LIBS="-Wl,-soname=libY2.so.14"
+	CC="%{__cc}" \
+	CPP="%{__cxx}" \
+	CFLAGS="%{rpmcflags} -fPIC"
 
 %{__make} -C yiff \
+	CC="%{__cc}" \
+	CPP="%{__cxx}" \
 	CFLAGS="%{rpmcflags}"
 
 %{__make} -C yiffconfig \
+	CC="%{__cc}" \
+	CPP="%{__cxx}" \
 	CFLAGS="`gtk-config --cflags` %{rpmcflags}"
 
 %{__make} -C yiffutils \
+	CC="%{__cc}" \
+	CPP="%{__cxx}" \
 	CFLAGS="%{rpmcflags}"
 
 %install

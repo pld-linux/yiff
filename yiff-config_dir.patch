@@ -1,15 +1,14 @@
-diff -durN yiff2.12.3.orig/yiff/config.h yiff2.12.3/yiff/config.h
---- yiff2.12.3.orig/yiff/config.h	Tue Feb 13 11:57:08 2001
-+++ yiff2.12.3/yiff/config.h	Thu May  3 16:13:04 2001
-@@ -7,7 +7,7 @@
+--- yiff-2.14.5/yiff/config.h.orig	2005-09-26 10:41:59.000000000 +0200
++++ yiff-2.14.5/yiff/config.h	2006-04-23 19:25:25.548314000 +0200
+@@ -14,7 +14,7 @@
   *	Full path to the YIFF Sound Server configuration file, it
-  *	can also be specified from the command line at run time.
+  *	can also be specified from the command line at run time
   */
--#define DEF_RCFILE_NAME         "/usr/etc/yiffrc"
-+#define DEF_RCFILE_NAME         "/etc/yiffrc"
- /* Alternate name */
- /*
- #define DEF_RCFILE_NAME		"/usr/etc/YIFFConfig"
+-#define DEF_RCFILE_NAME		"/usr/etc/yiffrc"
++#define DEF_RCFILE_NAME		"/etc/yiffrc"
+ /* #define DEF_RCFILE_NAME	"/etc/yiff.conf" */
+ /* #define DEF_RCFILE_NAME	"/usr/etc/YIFFConfig" */
+ 
 diff -durN yiff2.12.4.orig/yiff/yiff.8 yiff2.12.4/yiff/yiff.8
 --- yiff2.12.4.orig/yiff/yiff.8	Tue Feb 13 11:57:08 2001
 +++ yiff2.12.4/yiff/yiff.8	Thu May  3 16:13:30 2001

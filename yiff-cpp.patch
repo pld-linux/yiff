@@ -1,14 +1,3 @@
---- yiff2.12.4/yiff/Makefile.orig	Sat May  5 10:53:24 2001
-+++ yiff2.12.4/yiff/Makefile	Sun Feb  2 11:03:57 2003
-@@ -148,7 +148,7 @@
- # Build Rules:
- #
- $(BIN): $(OBJ_C) $(OBJ_CPP)
--	$(CC) $(OBJ_C) $(OBJ_CPP) -o $(BIN) $(LIB) $(LIB_DIR)
-+	$(CPP) $(OBJ_C) $(OBJ_CPP) -o $(BIN) $(LIB) $(LIB_DIR)
- 
- all: $(BIN)
- 
 --- yiff2.12.4/yiffconfig/Makefile.orig	Sat May  5 10:53:23 2001
 +++ yiff2.12.4/yiffconfig/Makefile	Sun Feb  2 11:08:37 2003
 @@ -117,7 +117,7 @@
@@ -73,3 +62,14 @@
  	string.cpp \
  	yshutdown.c -o yshutdown
  
+--- yiff-2.14.5/libY2/Makefile.orig	2005-09-26 10:41:57.000000000 +0200
++++ yiff-2.14.5/libY2/Makefile	2006-04-23 19:32:25.030530000 +0200
+@@ -139,7 +139,7 @@
+ 	+$(CPP) -c $*.cpp $(INC_DIRS) $(CFLAGS) $(CPPFLAGS)
+ 
+ $(LIB): $(OBJ_C) $(OBJ_CPP)
+-	$(CC) $(OBJ_C) $(OBJ_CPP) -Wl,-soname=$(LIB) -shared -o $(LIB) $(LIBS) $(LIB_DIRS)
++	$(CPP) $(OBJ_C) $(OBJ_CPP) -Wl,-soname=$(LIB) -shared -o $(LIB) $(LIBS) $(LIB_DIRS)
+ 	$(LINK) $(LINKFLAGS) $(LIB) $(LIBPFX).so
+ 
+ all: $(LIB)

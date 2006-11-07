@@ -161,4 +161,4 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_bindir}/yiffconfig
 %{_mandir}/man1/yiffconfig.1*
 %{_pixmapsdir}/yiffconfig*
-%{_desktopdir}/*
+%{_desktopdir}/*.desktop

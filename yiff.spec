@@ -1,5 +1,5 @@
 Summary:	YIFF Sound Systems
-Summary(pl.UTF-8):   System dźwięku YIFF
+Summary(pl.UTF-8):	System dźwięku YIFF
 Name:		yiff
 Version:	2.14.5
 Release:	1
@@ -31,7 +31,7 @@ lub ALSA.
 
 %package devel
 Summary:	YIFF development package
-Summary(pl.UTF-8):   Pakiet programistyczny YIFF
+Summary(pl.UTF-8):	Pakiet programistyczny YIFF
 Group:		Development/Libraries
 Requires:	%{name}-lib = %{version}-%{release}
 
@@ -45,7 +45,7 @@ YIFF.
 
 %package lib
 Summary:	YIFF libraries
-Summary(pl.UTF-8):   Biblioteki YIFF
+Summary(pl.UTF-8):	Biblioteki YIFF
 Group:		Development/Libraries
 
 %description lib
@@ -57,7 +57,7 @@ systemu dźwięku YIFF.
 
 %package config
 Summary:	YIFF configuration utility
-Summary(pl.UTF-8):   Narzędzie konfiguracyjne do YIFF
+Summary(pl.UTF-8):	Narzędzie konfiguracyjne do YIFF
 Group:		Applications/Sound
 Requires:	%{name} = %{version}-%{release}
 

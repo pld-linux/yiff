@@ -1,5 +1,5 @@
 Summary:	YIFF Sound Systems
-Summary(pl):	System d¼wiêku YIFF
+Summary(pl.UTF-8):   System dÅºwiÄ™ku YIFF
 Name:		yiff
 Version:	2.14.5
 Release:	1
@@ -24,14 +24,14 @@ The YIFF sound server is a Y compliant sound server providing Y
 compliant client applications with sound support. Uses either OSS or
 ALSA sound drivers and follows OSS compliancy.
 
-%description -l pl
-Serwer d¼wiêku YIFF jest zgodnym z Y serwerem d¼wiêku daj±cym obs³ugê
-d¼wiêku dla aplikacji klienckich zgodnych z Y. U¿ywa sterowników OSS
+%description -l pl.UTF-8
+Serwer dÅºwiÄ™ku YIFF jest zgodnym z Y serwerem dÅºwiÄ™ku dajÄ…cym obsÅ‚ugÄ™
+dÅºwiÄ™ku dla aplikacji klienckich zgodnych z Y. UÅ¼ywa sterownikÃ³w OSS
 lub ALSA.
 
 %package devel
 Summary:	YIFF development package
-Summary(pl):	Pakiet programistyczny YIFF
+Summary(pl.UTF-8):   Pakiet programistyczny YIFF
 Group:		Development/Libraries
 Requires:	%{name}-lib = %{version}-%{release}
 
@@ -39,33 +39,33 @@ Requires:	%{name}-lib = %{version}-%{release}
 YIFF Sound Systems development files required to develop programs
 using yiff.
 
-%description devel -l pl
-Pliki potrzebne do tworzenia programów u¿ywaj±cych systemu d¼wiêku
+%description devel -l pl.UTF-8
+Pliki potrzebne do tworzenia programÃ³w uÅ¼ywajÄ…cych systemu dÅºwiÄ™ku
 YIFF.
 
 %package lib
 Summary:	YIFF libraries
-Summary(pl):	Biblioteki YIFF
+Summary(pl.UTF-8):   Biblioteki YIFF
 Group:		Development/Libraries
 
 %description lib
 YIFF Sound Systems library required to run programs using yiff.
 
-%description lib -l pl
-Biblioteki potrzebne do uruchamiania programów korzystaj±cych z
-systemu d¼wiêku YIFF.
+%description lib -l pl.UTF-8
+Biblioteki potrzebne do uruchamiania programÃ³w korzystajÄ…cych z
+systemu dÅºwiÄ™ku YIFF.
 
 %package config
 Summary:	YIFF configuration utility
-Summary(pl):	Narzêdzie konfiguracyjne do YIFF
+Summary(pl.UTF-8):   NarzÄ™dzie konfiguracyjne do YIFF
 Group:		Applications/Sound
 Requires:	%{name} = %{version}-%{release}
 
 %description config
 YIFF Sound Systems configuration utility.
 
-%description config -l pl
-Narzêdzie konfiguracyjne do systemu d¼wiêku YIFF.
+%description config -l pl.UTF-8
+NarzÄ™dzie konfiguracyjne do systemu dÅºwiÄ™ku YIFF.
 
 %prep
 %setup -q

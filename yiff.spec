@@ -2,7 +2,7 @@ Summary:	YIFF Sound Systems
 Summary(pl.UTF-8):	System dźwięku YIFF
 Name:		yiff
 Version:	2.14.7
-Release:	1
+Release:	2
 License:	GPL-like
 Group:		Applications/Sound
 Source0:	http://wolfsinger.com/~wolfpack/packages/%{name}-%{version}.tar.bz2

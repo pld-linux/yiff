@@ -2,7 +2,7 @@ Summary:	YIFF Sound Systems
 Summary(pl.UTF-8):	System dźwięku YIFF
 Name:		yiff
 Version:	2.14.7
-Release:	2
+Release:	3
 License:	GPL-like
 Group:		Applications/Sound
 Source0:	http://wolfsinger.com/~wolfpack/packages/%{name}-%{version}.tar.bz2
@@ -11,7 +11,7 @@ Source1:	%{name}config.desktop
 Patch0:		%{name}-config_dir.patch
 Patch1:		%{name}-cpp.patch
 Patch2:		%{name}-nolibz.patch
-URL:		http://freecode.com/projects/yiff
+URL:		http://freshmeat.sourceforge.net/projects/yiff
 BuildRequires:	gtk+-devel
 BuildRequires:	libstdc++-devel
 Requires:	yiff-lib = %{version}
@@ -98,7 +98,7 @@ bzip2 yiff/yiff.8
 
 %install
 rm -rf $RPM_BUILD_ROOT
-install -d $RPM_BUILD_ROOT{%{_mandir}/man1,%{_bindir},%{_pixmapsdir}}
+install -d $RPM_BUILD_ROOT{%{_mandir}/man1,%{_bindir},%{_pkgconfigdir},%{_pixmapsdir}}
 install -d $RPM_BUILD_ROOT{%{_datadir}/sounds,%{_desktopdir},%{_sysconfdir}}
 
 %{__make} -C libY2 install \
@@ -111,7 +111,7 @@ install -d $RPM_BUILD_ROOT{%{_datadir}/sounds,%{_desktopdir},%{_sysconfdir}}
 	ETC_DIR="$RPM_BUILD_ROOT%{_sysconfdir}" \
 	SBIN_DIR="$RPM_BUILD_ROOT%{_sbindir}" \
 	MAN_DIR="$RPM_BUILD_ROOT%{_mandir}/man8"
-install yiff/yiffrc $RPM_BUILD_ROOT%{_sysconfdir}
+cp -p yiff/yiffrc $RPM_BUILD_ROOT%{_sysconfdir}
 
 %{__make} -C yiffconfig install \
 	BIN_DIR="$RPM_BUILD_ROOT%{_bindir}" \
@@ -127,9 +127,21 @@ install yiff/yiffrc $RPM_BUILD_ROOT%{_sysconfdir}
 	ICONS_DIR="%{_pixmapsdir}" \
 	SOUNDS_DIR="%{_soundsdir}"
 
-install %{SOURCE1} $RPM_BUILD_ROOT%{_desktopdir}
+cp -p %{SOURCE1} $RPM_BUILD_ROOT%{_desktopdir}
 
 bzip2 -d $RPM_BUILD_ROOT%{_mandir}/man?/*.bz2
+
+cat >$RPM_BUILD_ROOT%{_pkgconfigdir}/Y2.pc <<'EOF'
+prefix=%{_prefix}
+libdir=%{_libdir}
+includedir=%{_includedir}
+
+Name: Y2
+Description: YIFF Sound System
+Version: %{version}
+Libs: -L${libdir} -lY2
+Cflags: -I${includedir}
+EOF
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -162,12 +174,13 @@ rm -rf $RPM_BUILD_ROOT
 %files lib
 %defattr(644,root,root,755)
 %doc LICENSE README
-%attr(755,root,root) %{_libdir}/libY2.so.*
+%attr(755,root,root) %{_libdir}/libY2.so.14
 
 %files devel
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_libdir}/libY2.so
 %{_includedir}/Y2
+%{_pkgconfigdir}/Y2.pc
 %{_mandir}/man3/Y*.3*
 
 %files config
